@@ -12,10 +12,10 @@ module.exports = function(application){
       // Conexão
       var connection = application.config.dbConnection()
       // Model
-      var noticiasModel = application.app.models.noticiasModel
+      var noticiasModel = new application.app.models.NoticiasDAO(connection)
       
       //Salvar noticia
-       noticiasModel.salvarNoticia(noticia, connection, function(error, result){
+       noticiasModel.salvarNoticia(noticia, function(error, result){
       // res.render("noticias/noticias", {noticias : result})
         res.redirect('/noticias')
     })
