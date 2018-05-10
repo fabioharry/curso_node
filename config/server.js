@@ -10,6 +10,8 @@ var app = express()
 app.set('view engine', 'ejs')
 app.set('views', './app/views')
 
+//Mapeando os arquivos staticos
+app.use(express.static('./app/public'))
 // Deve ficar andas dos includes de modulos
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(expressValidator())
